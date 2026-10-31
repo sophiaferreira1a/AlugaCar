@@ -1,0 +1,76 @@
+@startuml casos-de-uso
+!pragma layout smetana
+
+left to right direction
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #EAF3FB
+  BorderColor #2E6DA4
+}
+skinparam rectangle {
+  BackgroundColor #F7F9FC
+  BorderColor #2E6DA4
+}
+
+actor "Visitante" as visitante
+actor "Cliente" as cliente
+actor "Agente" as agente
+actor "Empresa" as empresa
+actor "Banco" as banco
+
+agente <|-- empresa
+agente <|-- banco
+
+rectangle "Sistema AlugaCar" {
+  usecase "Cadastrar-se" as UC01
+  usecase "Autenticar-se" as UC02
+  usecase "Gerenciar perfil" as UC03
+  usecase "Gerenciar rendimentos\n(máx. 3)" as UC04
+  usecase "Consultar automóveis" as UC05
+  usecase "Criar pedido de aluguel" as UC06
+  usecase "Editar pedido" as UC07
+  usecase "Consultar pedido" as UC08
+  usecase "Cancelar pedido" as UC09
+  usecase "Gerenciar automóveis" as UC10
+  usecase "Avaliar pedido" as UC11
+  usecase "Conceder contrato de crédito" as UC12
+}
+
+visitante --> UC01
+visitante --> UC02
+
+cliente --> UC02
+cliente --> UC03
+cliente --> UC04
+cliente --> UC05
+cliente --> UC06
+cliente --> UC07
+cliente --> UC08
+cliente --> UC09
+
+agente --> UC02
+agente --> UC05
+agente --> UC08
+agente --> UC10
+agente --> UC11
+banco --> UC12
+
+UC06 ..> UC02 : <<include>>
+UC07 ..> UC02 : <<include>>
+UC09 ..> UC08 : <<extend>>
+
+note bottom of UC02
+  Todos os casos de uso, exceto
+  Cadastrar-se e Autenticar-se,
+  exigem autenticação.
+end note
+
+note right of banco
+  Banco herda os casos de uso
+  de Agente e pode conceder
+  contrato de crédito.
+end note
+
+@enduml

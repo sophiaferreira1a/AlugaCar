@@ -1,0 +1,115 @@
+@startuml diagrama-classes
+!pragma layout smetana
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+hide empty members
+hide circle
+
+abstract class "Usuario" as Usuario <<Entity>> {
+  - id : UUID
+  - nome : String
+  - username : String
+  - senha : String
+  - tipo : TipoUsuario
+  - ativo : boolean
+  - dataCadastro : LocalDateTime
+}
+
+class "Cliente" as Cliente <<Entity>> {
+  - rg : String
+  - cpf : String
+  - profissao : String
+}
+
+class "Agente" as Agente <<Entity>> {
+  - cnpj : String
+  - razaoSocial : String
+}
+
+class "Empresa" as Empresa <<Entity>>
+class "Banco" as Banco <<Entity>> {
+  - codigoBanco : String
+}
+
+class "Endereco" as Endereco <<Embeddable>> {
+  - logradouro : String
+  - numero : String
+  - complemento : String
+  - bairro : String
+  - cidade : String
+  - uf : String
+  - cep : String
+}
+
+class "Rendimento" as Rendimento <<Entity>> {
+  - id : UUID
+  - entidadeEmpregadora : String
+  - valor : BigDecimal
+}
+
+class "Automovel" as Automovel <<Entity>> {
+  - id : UUID
+  - matricula : String
+  - ano : Integer
+  - marca : String
+  - modelo : String
+  - placa : String
+}
+
+class "PedidoAluguel" as PedidoAluguel <<Entity>> {
+  - id : UUID
+  - dataInicio : LocalDate
+  - dataFim : LocalDate
+  - status : StatusPedido
+  - observacoes : String
+  - dataCriacao : LocalDateTime
+  - dataAtualizacao : LocalDateTime
+}
+
+class "ContratoCredito" as ContratoCredito <<Entity>> {
+  - id : UUID
+  - valor : BigDecimal
+  - taxaJuros : BigDecimal
+  - prazoMeses : Integer
+  - dataConcessao : LocalDate
+}
+
+enum "TipoUsuario" as TipoUsuario {
+  CLIENTE
+  EMPRESA
+  BANCO
+}
+
+enum "StatusPedido" as StatusPedido {
+  PENDENTE
+  EM_ANALISE
+  APROVADO
+  REPROVADO
+  CANCELADO
+  CONTRATO_EXECUTADO
+}
+
+Usuario <|-- Cliente
+Usuario <|-- Agente
+Agente <|-- Empresa
+Agente <|-- Banco
+
+Cliente *-- "1" Endereco : reside em
+Cliente "1" *-- "0..3" Rendimento : possui
+Usuario "1" -- "0..*" Automovel : proprietário
+Cliente "1" -- "0..*" PedidoAluguel : realiza
+Automovel "1" -- "0..*" PedidoAluguel : alugado
+PedidoAluguel "1" -- "0..1" ContratoCredito : possui
+Banco "1" -- "0..*" ContratoCredito : concede
+
+Usuario --> TipoUsuario
+PedidoAluguel --> StatusPedido
+
+note right of Cliente
+  O cliente pode ter no
+  máximo 3 rendimentos.
+end note
+
+@enduml

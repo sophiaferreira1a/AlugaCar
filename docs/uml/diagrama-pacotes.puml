@@ -1,0 +1,41 @@
+@startuml diagrama-pacotes
+!pragma layout smetana
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam package {
+  BackgroundColor #F7F9FC
+  BorderColor #2E6DA4
+}
+
+package "com.lab.alugacar" {
+  package "controller" as controller
+  package "service" as service
+  package "repository" as repository
+  package "model" as model
+  package "dto" as dto
+  package "security" as security
+  package "exception" as exception
+  package "config" as config
+}
+
+controller ..> service : usa
+controller ..> dto
+service ..> repository : consulta/persiste
+service ..> model
+service ..> dto
+service ..> exception : lança
+repository ..> model
+security ..> service
+security ..> repository
+security ..> model
+config ..> security
+config ..> service
+
+note bottom of model
+  Camada de domínio: não depende
+  de controller, service ou repository.
+end note
+
+@enduml
