@@ -2,14 +2,10 @@
 
 Sistema web para apoio à gestão de aluguéis de automóveis. Clientes criam, modificam, consultam e cancelam pedidos de aluguel pela Internet; agentes (empresas e bancos) avaliam financeiramente os pedidos e, quando há financiamento, o banco concede um contrato de crédito.
 
-> Laboratório 02 (15 pontos) - Desenvolvimento e Integração de Aplicações Web (DIAW)
 > Engenharia de Software - PUC Minas - Prof. João Paulo Carneiro Aramuni
 
-## Integrantes
-
-| Nome | Responsabilidade |
-|---|---|
-| Sophia Ferreira | [PREENCHER] |
+## Aluno
+| Sophia Ferreira | [2º período] |
 
 ## Tecnologias
 
