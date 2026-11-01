@@ -33,7 +33,7 @@ rectangle "Sistema AlugaCar" {
   usecase "Editar pedido" as UC07
   usecase "Consultar pedido" as UC08
   usecase "Cancelar pedido" as UC09
-  usecase "Gerenciar automóveis" as UC10
+  usecase "Gerenciar automóveis\n(próprios)" as UC10
   usecase "Avaliar pedido" as UC11
   usecase "Conceder contrato de crédito" as UC12
 }
@@ -49,6 +49,7 @@ cliente --> UC06
 cliente --> UC07
 cliente --> UC08
 cliente --> UC09
+cliente --> UC10
 
 agente --> UC02
 agente --> UC05

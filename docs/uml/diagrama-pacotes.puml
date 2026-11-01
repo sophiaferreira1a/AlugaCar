@@ -26,16 +26,20 @@ service ..> repository : consulta/persiste
 service ..> model
 service ..> dto
 service ..> exception : lança
+service ..> security : emite JWT
 repository ..> model
-security ..> service
+dto ..> model : converte entidades
 security ..> repository
 security ..> model
-config ..> security
-config ..> service
 
 note bottom of model
   Camada de domínio: não depende
-  de controller, service ou repository.
+  de nenhum outro pacote.
+end note
+
+note bottom of config
+  Reservado para configurações.
+  Hoje a SecurityConfig fica em security.
 end note
 
 @enduml
