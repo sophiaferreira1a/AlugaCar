@@ -43,7 +43,7 @@ export default function LoginPage() {
           <h1>Seu próximo carro começa com uma boa análise.</h1>
           <p>
             Solicite o aluguel, acompanhe a avaliação da empresa e execute o contrato de crédito
-            com o banco — tudo em um só lugar.
+            com o banco: tudo em um só lugar.
           </p>
           <div className="hero-points">
             <span>Pedidos online</span>
@@ -51,9 +51,7 @@ export default function LoginPage() {
             <span>Contrato digital</span>
           </div>
         </div>
-        <div className="hero-car" aria-hidden="true">
-          <span />
-        </div>
+        
       </section>
 
       <section className="auth-panel">

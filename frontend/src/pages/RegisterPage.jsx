@@ -139,9 +139,7 @@ export default function RegisterPage() {
             ))}
           </div>
         </div>
-        <div className="hero-car small" aria-hidden="true">
-          <span />
-        </div>
+        
       </section>
 
       <section className="auth-panel">
