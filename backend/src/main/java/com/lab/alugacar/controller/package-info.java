@@ -1,2 +1,2 @@
 @Deprecated(forRemoval = false)
-package main.java.com.lab.alugacar.controller;
+package com.lab.alugacar.controller;

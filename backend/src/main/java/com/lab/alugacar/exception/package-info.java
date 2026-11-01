@@ -1,2 +1,2 @@
 @Deprecated(forRemoval = false)
-package main.java.com.lab.alugacar.exception;
+package com.lab.alugacar.exception;

@@ -1,2 +1,2 @@
 @Deprecated(forRemoval = false)
-package main.java.com.lab.alugacar.dto;
+package com.lab.alugacar.dto;

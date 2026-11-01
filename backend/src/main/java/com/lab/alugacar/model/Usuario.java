@@ -1,4 +1,4 @@
-package main.java.com.lab.alugacar.model;
+package com.lab.alugacar.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;

@@ -1,2 +1,2 @@
 @Deprecated(forRemoval = false)
-package main.java.com.lab.alugacar.security;
+package com.lab.alugacar.security;
